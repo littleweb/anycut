@@ -1,0 +1,59 @@
+﻿html,body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{font-family:"微软雅黑";}
+*{-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+h1,h2, h3, h4, h5, h6 {font-size:100%;}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+img {border:0;}
+button,input,select,textarea{font-size:100%;}
+body{padding:48px 0 10px 0;font-size:16px;color:#4B4B4B;background:#C8D7DB;}
+/*公共组件*/
+.Abutton{padding:2px 8px;border:2px solid #BC7E11;border-radius:5px;background:#FFAD1C;}
+.back{border-radius:50px 8px 8px 50px;}
+/*公共版块*/
+.TBorder{border:2px solid #FFF;background:#FFF;}
+.TBorder .title{height:32px;position:relative;line-height:32px;text-indent:1em;color:#FFF;font-size:16px;background:#134E7B;}
+.TBorder .title .tail{position:absolute;right:1em;top:0;}
+.TBorder .body{padding:5px;position:relative;}
+header,footer{width:100%;position:fixed;left:0;color:#FFF;}
+header{height:48px;top:0;font-size:16px;line-height:48px;background:#134E7B;}
+header #Title{text-align:center;}
+header #Nav-bar{position:absolute;left:1em;}
+header .tail{position:absolute;top:0;right:10px;}
+#states{width:100%;}
+/*工作区设置*/
+.state{display:none;}
+/*交互窗口*/
+#action{width:100%;}
+#action .widget{display:none;position:absolute;margin:0 auto;}
+#newDir{width:80%;left:10%;}
+#newDir .body{text-align:center;}
+#newDir p{padding:15px 0px;}
+#newDir p{padding:15px 0px;}
+#dirName{width:60%;height:32px;line-height:32px;text-indent:0.5em;font-size:16px;border:1px solid #134E7B;background:#FFF;}
+#saveNewDir{width:90px;height:45px;font-size:16px;color:#FFF;border:2px solid #134E7B;border-radius:5px;background:#134E7B;}
+/*文件夹列表*/
+#fList{padding:15px;}
+#fList li{width:64px;height:88px;margin:0px 20px 0 10px;float:left;text-align:center;}
+#fList li.down .icon{border-color:orange}
+#fList li .icon{width:64px;height:64px;border:2px solid #CCE2D9;border-radius:5px;box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);background:#F7FDF9;}
+#fList li .name{height:24px;line-height:24px;font-size:14px;}
+/*记事列表*/
+#nList{padding:15px;}
+#nList li{height:66px;margin-bottom:15px;padding:5px;border:2px solid #687D6E;}
+#nList li.down{border-color:orange}
+#nList li .photo{width:64px;height:64px;margin-right:15px;float:left;border:1px solid #595959;}
+#nList li .photo img{width:64px;height:64px;}
+/*单个记事*/
+#nShow{padding:15px;text-align:center;}
+#nShow .tabs input{width:75px;height:30px;margin:0 10px;color:#7F7F7F;border:2px solid #FFF;border-radius:8px 8px 0 0;background:#B9AB6F;}
+#nShow .tabs input.current{color:#FFF;background:#FFAD1C;}
+#nShow img{width:320px;height:480px;}
+/*新建/编辑单个记事*/
+#nEdit{padding:15px;text-align:center;}
+#nEdit .tabs input{width:75px;height:30px;margin:0 10px;color:#7F7F7F;border:2px solid #FFF;border-radius:8px 8px 0 0;background:#B9AB6F;}
+#nEdit .tabs input.current{color:#FFF;background:#FFAD1C;}
+/*浮动工具栏*/
+.FloatAction{width:210px;height:48px;margin-left:-105px;position:fixed;bottom:0;left:50%;line-height:48px;text-align:center;background:#134E7B;}
+.FloatAction input{margin:0px 15px;}

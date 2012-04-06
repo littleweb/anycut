@@ -1,0 +1,86 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试</title>
+<script language="javascript" src="phonegap.js"></script>
+<script language="javascript" >
+function $(id){return document.getElementById(id);}
+
+//等待设备准备好
+document.addEventListener("deviceready", onDeviceReady, false);
+//设备已经准备好了
+function onDeviceReady(){
+	alert("设备加载成功!");
+}
+
+//从相机获取图像，返回的是URI
+function getCamera(){
+	var m_imageURI;//选择的图像文件
+	navigator.camera.getPicture(
+		//获取图像成功
+		function (imageURI) {
+			//var image = document.getElementById('myImage');
+			//image.src = imageURI;
+			//alert("pic: "+ imageURI);
+			m_imageURI = imageURI;
+			//转换URI到全路径
+			window.resolveLocalFileSystemURI(
+				imageURI,
+				//转换URI到全路径
+				function(fileEntry){
+					fpath = fileEntry.fullPath;
+					moveFile();
+					//alert("fullpath: "+ fpath);
+					//$("path").value = fpath;
+					//$("image").src = fpath;
+				},
+				//文件操作失败
+				function(error) { 
+					//alert("错误号: "+ error.code);
+				}
+			);
+		},
+		//获取图像失败
+		function (message) {
+			//alert('Failed because: ' + message);
+			//alert(message);
+		}, 
+		//相机参数
+		{
+			quality: 50,
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType : Camera.PictureSourceType.CAMERA,
+			allowEdit : false,
+			encodingType : Camera.EncodingType.JPEG,
+			targetWidth : 100,
+			targetHeight : 100
+		}
+	);
+	function moveFile(moveFile,moveFile){
+		//开始操作文件
+		//通过本地URI参数检索DirectoryEntry或FileEntry
+		window.resolveLocalFileSystemURI(m_imageURI,function(fileEntry){
+		//请求持久化的文件系统
+			window.requestFileSystem(LocalFileSystem.PERSISTENT,0,function(fileSystem){
+				//如果目录不存在就创建
+				var direc = fileSystem.root.getDirectory(dirname, {create: true},function( parent ){
+					//toLog("Parent Name:" + parent.name +"<br/>Full Path:"+ parent.fullPath);
+					//移动文件
+					fileEntry.moveTo(parent/*fileSystem.root*/, fname,function(){
+						//toLog("Move OK: "+ parent.fullPath +"/"+ fname );
+						$("path").value=parent.fullPath +"/"+ fname
+					}, function(){alert("失败");});			
+				},function(){alert("失败");});
+			}, function(){alert("失败");});
+		},function(){alert("失败");});
+	}
+}
+</script>
+</head>
+<body>
+	<p><button onClick="getCamera();">拍照</button></p>
+	<p>Path: <input type="text" id="path" value="" style="width:300px;" /></p>
+	<p><img src="" id="image" /></p>
+</body>
+</html>

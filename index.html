@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+<title>测试</title>
+<link rel="stylesheet" href="ui.css" />
+</head>
+<body>
+<header>
+	<span id="Nav-bar"><input onclick="GoBack()" class="Abutton back" type="button" value="　" />　<input onclick="goHome()" class="Abutton" type="button" value="Home" /></span>
+	<h1 id="Title">随身拍</h1>
+	<span id="Action-bar" class="tail"></span>
+</header>
+<section id="states">
+	<!-- 文件夹显示列表 -->
+	<article class="state" id="fList">
+		<ul id="fListData">
+
+		</ul>
+	</article>
+	<!-- 记事列表 -->
+	<article class="state" id="nList">
+		<ul id="nListData">
+
+		</ul>
+	</article>
+	<!-- 单个记事-展示 -->
+	<article class="state" id="nShow">
+		<div class="tabs">
+			<input onclick="reTab(['nShow-content-photo','nShow-content-word'],'nShow-content-photo')" type="button" class="current" value="照片"/>
+			<input onclick="reTab(['nShow-content-photo','nShow-content-word'],'nShow-content-word')" type="button" value="描述"/>
+		</div>
+		<div class="content">
+			<p id="nShow-content-photo" class="photo"></p>
+			<p style="display:none;" id="nShow-content-word" class="word"><span></span></p>
+		</div>
+	</article>
+	<!-- 单个记事-编辑 -->
+	<article class="state" id="nEdit">
+		<div class="tabs">
+			<input onclick="reTab(['nEdit-content-photo','nEdit-content-word'],'nEdit-content-photo')" type="button" class="current" value="拍照"/>
+			<input onclick="reTab(['nEdit-content-photo','nEdit-content-word'],'nEdit-content-word')" type="button" value="描述"/>
+		</div>
+		<div class="content">
+			<p id="nEdit-content-photo" class="photo"><input value="拍照" type="button" onclick="getCamera()" /></p>
+			<p style="display:none;" id="nEdit-content-word" class="word"><textarea></textarea></p>
+		</div>
+		<div class="FloatAction"><input onclick="saveNewNote()" class="Abutton" type="button" value="保存" /><input onclick="GoBack()" class="Abutton" type="button" value="取消" /></span></div>
+	</article>
+</section>
+<section id="action">
+	<article id="newDir" class="TBorder widget">
+		<h3 class="title">添加文件夹<input type="button" class="Abutton tail" value="×" onclick="this.parentNode.parentNode.style.display='none'"/></h3>
+		<div class="body">
+			<p><textarea id="dirName"></textarea></p>
+			<p><input id="saveNewDir" onclick="saveNewDir()" type="button" value="保存" /></p>
+		</div>
+	</article>
+</section>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<script type="text/javascript" src="static.js"></script>
+<script type="text/javascript" src="uiaction.js"></script>
+<script type="text/javascript" src="data.js"></script>
+<!-- <script type="text/javascript" src="action.js"></script> -->
+</body>
+</html>
